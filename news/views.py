@@ -9,12 +9,15 @@ def welcome(request):  # welcome is our view function.
 
 # adding the dynamic content to our application.
 
-#view function that is responsible for returning news of the specific day.
-def news_of_day(request): 
-    date = dt.date.today() # calling the date.today function to get the current date.
+# view function that is responsible for returning news of the specific day.
 
-    #function that convert the date object to find specific day.
-    day= convert_dates(date)
+
+def news_of_day(request):
+    # calling the date.today function to get the current date.
+    date = dt.date.today()
+
+    # function that convert the date object to find specific day.
+    day = convert_dates(date)
     html = f'''
         <html>
             <body>
@@ -25,13 +28,31 @@ def news_of_day(request):
     
     '''
     return HttpResponse(html)
-#function that get the weekday number by the date.
+# function that get the weekday number by the date.
+
+
 def convert_dates(dates):
-    day_number=dt.date.weekday(dates) # function that takes in date and return a number that represent specific day of the week.
+    # function that takes in date and return a number that represent specific day of the week.
+    day_number = dt.date.weekday(dates)
 
-    days=['monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday']
-    #Returning the actual day of the week.
-    day=days[day_number]
+    days = ['monday', 'Tuesday', 'Wednesday',
+            'Thursday', 'Friday', 'Saturday', 'Sunday']
+    # Returning the actual day of the week.
+    day = days[day_number]
     return day
+# function that get the past news date
 
 
+def past_days_news(request, past_date):
+    # convert data from the string url
+    date = dt.datetime.strptime(past_date, '%Y-%m-%d').date()
+
+    day = convert_dates(date)
+    html = f'''
+    <html>
+        <body>
+            <h1> News for {day} {date.day}-{date.month}-{date.year} </h1>
+        </body>
+    </html>
+    '''
+    return HttpResponse(html)
