@@ -60,3 +60,9 @@ def past_days_news(request, past_date):
     </html>
     '''
     return HttpResponse(html)
+
+from django.shortcuts import render
+
+#creating the views here 
+def welcome(request):
+    return render(request,'welcome.html')
