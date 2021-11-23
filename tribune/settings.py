@@ -29,8 +29,9 @@ ALLOWED_HOSTS = []
 
 
 # Application definition
-
+#configuring the app news in the project tribune.
 INSTALLED_APPS = [
+    
     'news.apps.NewsConfig',
     'django.contrib.admin',
     'django.contrib.auth',
