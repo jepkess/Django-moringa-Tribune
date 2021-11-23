@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 #configuring the app news in the project tribune.
 INSTALLED_APPS = [
     
+    'bootstrap4',
     'news.apps.NewsConfig',
     'django.contrib.admin',
     'django.contrib.auth',
