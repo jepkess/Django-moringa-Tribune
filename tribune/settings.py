@@ -80,7 +80,7 @@ WSGI_APPLICATION = 'tribune.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'tribune',
+        'NAME': 'tribunes',
         'username': 'moringa',
         'password': '1234'
     }
