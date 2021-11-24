@@ -29,8 +29,8 @@ from django.conf.urls import url,include
 from django.contrib import admin
 
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
-    path('news/',include('news.urls'))
+    path('admin', admin.site.urls),
+    path('',include('news.urls'))
 ]
 
 
