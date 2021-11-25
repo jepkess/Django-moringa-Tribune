@@ -39,7 +39,11 @@ class Article(models.Model):
         news = cls.objects.filter(pub_date__date = date)
         return news
 
-        
+     #class method that will query the database and fetch the results.
+    @classmethod 
+    def search_by_title(cls,search_term):
+        news = cls.objects.filter(title__icontains=search_term)
+        return news
 
      
     
