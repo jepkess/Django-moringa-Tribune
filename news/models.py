@@ -28,6 +28,7 @@ class Article(models.Model):
     editor = models.ForeignKey(Editor,on_delete=models.CASCADE)
     tags = models.ManyToManyField(tags)
     pub_date = models.DateTimeField(default=datetime.datetime.now)
+    article_image=models.ImageField(upload_to='articles/')
 
     @classmethod
     def todays_news(cls):
@@ -41,7 +42,7 @@ class Article(models.Model):
 
      #class method that will query the database and fetch the results.
     @classmethod 
-    def search_by_title(cls,search_term):
+    def search_by_title(cls,search_term):# search_by_title method filter all the artcle in the database and return the one which matches with the search results.
         news = cls.objects.filter(title__icontains=search_term)
         return news
 

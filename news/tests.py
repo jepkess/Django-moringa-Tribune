@@ -5,7 +5,7 @@ import datetime as dt
 class EditorTestClass(TestCase):
 
     # Set up method
-    def setUp(self):
+    def setUp(self):# allow us to create a instance of editor class before every test.
         self.james= Editor(first_name = 'James', last_name ='Muriuki', email ='james@moringaschool.com')
     # Testing  instance
     def test_instance(self):
